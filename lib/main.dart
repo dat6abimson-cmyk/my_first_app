@@ -17,12 +17,22 @@ void main() {
         body: Container(
           alignment: Alignment.center,
           width: 250,
-          height: 100,
+
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.black, width: 5),
           ),
-          child: Text('Hello'),
+
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Chào mừng đến với Flutter'),
+              SizedBox(height: 20),
+              Text('Học Flutter!'),
+              SizedBox(height: 20),
+              Text('VIệt Nam vô địch'),
+            ],
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
