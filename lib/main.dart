@@ -30,7 +30,30 @@ void main() {
               SizedBox(height: 20),
               Text('Học Flutter!'),
               SizedBox(height: 20),
-              Text('VIệt Nam vô địch'),
+              Row(
+                children: [
+                  SizedBox(width: 20),
+                  Text(
+                    ' 2 - 0 ',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                  ),
+                  Icon(Icons.star, color: Colors.amber),
+
+                  Expanded(
+                    child: Container(
+                      color: Colors.red,
+                      child: Text('Việt Nam vô địch'),
+                    ),
+                  ),
+
+                  SizedBox(width: 10),
+                  Icon(Icons.flag, color: Colors.red),
+                ],
+              ),
             ],
           ),
         ),
