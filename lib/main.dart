@@ -4,8 +4,24 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Chuong trinh Flutter dau tien")),
-        body: Text("hello world"),
+        appBar: AppBar(
+          title: Text(
+            "Dự án đầu tiên ",
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.w300,
+              color: Colors.blue,
+            ),
+          ),
+        ),
+        body: Text(
+          "Hello World",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w300,
+            color: Colors.red,
+          ),
+        ),
       ),
     ),
   );
