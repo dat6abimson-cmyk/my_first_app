@@ -4,55 +4,48 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Dự án đầu tiên ",
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.w300,
-              color: Colors.red,
-            ),
-          ),
-        ),
+        appBar: AppBar(title: Text("Dart")),
         body: Container(
-          alignment: Alignment.center,
-          width: 250,
-
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.black, width: 5),
-          ),
-
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: [
-              Text('Chào mừng đến với Flutter'),
-              SizedBox(height: 20),
-              Text('Học Flutter!'),
-              SizedBox(height: 20),
-              Row(
-                children: [
-                  SizedBox(width: 20),
-                  Text(
-                    ' 2 - 0 ',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red,
+              Text("so 1"),
+              Text("so 2"),
+              Text("so 3"),
+              ListTile(
+                leading: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.home, color: Colors.redAccent),
+                    Icon(Icons.search),
+                    Icon(Icons.person, color: Colors.blue),
+                  ],
+                ),
+                title: Text("import gpt 4.5"),
+                trailing: Row(
+                  // đang nghiên cứu dùng column ở đây nhưng k fix đc lỗi quá overflowed pixels + bấm nút k hiện nội dung nếu xài column
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.favorite, size: 20, color: Colors.yellowAccent),
+                    Image.network(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPOm7MmVfuGENFgGd0DCZbwGC70GDJGYTSTG18IBTMTw&s=10",
+                      width: 30,
+                      height: 30,
                     ),
-                  ),
-                  Icon(Icons.star, color: Colors.amber),
-
-                  Expanded(
-                    child: Container(
-                      color: Colors.red,
-                      child: Text('Việt Nam vô địch'),
+                    Text(" 4-2 cho Việt Nam "),
+                    IconButton(
+                      onPressed: () {
+                        print("to be continue...");
+                      },
+                      icon: Icon(Icons.settings),
                     ),
-                  ),
-
-                  SizedBox(width: 10),
-                  Icon(Icons.flag, color: Colors.red),
-                ],
+                    ElevatedButton(
+                      onPressed: () {
+                        print(" bạn vừa bấm nut");
+                      },
+                      child: Text("nút"),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
