@@ -1,16 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final TEN = TextEditingController();
+  String ten = "";
+  String tin_nhan = 'Chạm vào dòng này';
+  @override
+  void dispose() {
+    TEN.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Dart")),
+        appBar: AppBar(title: Text("2/9 quoc khanh ")),
         body: Container(
           child: ListView(
             children: [
-              Text("so 1"),
-              Text("so 2"),
-              Text("so 3"),
+              Text('Flutter web so 1 '),
+
               ListTile(
                 leading: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -20,30 +39,51 @@ void main() {
                     Icon(Icons.person, color: Colors.blue),
                   ],
                 ),
-                title: Text("import gpt 4.5"),
-                trailing: Row(
-                  // đang nghiên cứu dùng column ở đây nhưng k fix đc lỗi quá overflowed pixels + bấm nút k hiện nội dung nếu xài column
-                  mainAxisSize: MainAxisSize.min,
+
+                title: Text('import gpt 4.5'),
+                trailing: IconButton(
+                  icon: Icon(Icons.settings, color: Colors.blueGrey),
+                  onPressed: () {
+                    print("tùy chỉnh ");
+                  },
+                ),
+              ),
+              SizedBox(height: 20),
+              Form(
+                child: Column(
                   children: [
-                    Icon(Icons.favorite, size: 20, color: Colors.yellowAccent),
-                    Image.network(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPOm7MmVfuGENFgGd0DCZbwGC70GDJGYTSTG18IBTMTw&s=10",
-                      width: 30,
-                      height: 30,
+                    TextField(
+                      controller: TEN,
+                      decoration: InputDecoration(
+                        labelText: 'Tên của bạn',
+                        hintText: 'Nhập tên...',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
-                    Text(" 4-2 cho Việt Nam "),
-                    IconButton(
-                      onPressed: () {
-                        print("to be continue...");
-                      },
-                      icon: Icon(Icons.settings),
-                    ),
+                    SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
-                        print(" bạn vừa bấm nut");
+                        setState(() {
+                          ten = TEN.text;
+                        });
                       },
-                      child: Text("nút"),
+                      child: Text('Hiển thị tên'),
                     ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          tin_nhan = 'Bạn vừa chạm vào dòng này!';
+                        });
+                      },
+                      child: Text(
+                        'Bấm vô đây',
+                        style: TextStyle(color: Colors.blue, fontSize: 18),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text('Xin chào:' + ten, style: TextStyle(fontSize: 20)),
+                    Text(tin_nhan),
                   ],
                 ),
               ),
@@ -52,6 +92,6 @@ void main() {
         ),
       ),
       debugShowCheckedModeBanner: false,
-    ),
-  );
+    );
+  }
 }
