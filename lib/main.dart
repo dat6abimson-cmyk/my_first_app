@@ -1,97 +1,179 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const Appcuatoi());
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({super.key});
+class Appcuatoi extends StatelessWidget {
+  const Appcuatoi({super.key});
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Man_splash(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  final TEN = TextEditingController();
-  String ten = "";
-  String tin_nhan = 'Chạm vào dòng này';
+class Man_splash extends StatefulWidget {
+  const Man_splash({super.key});
   @override
-  void dispose() {
-    TEN.dispose();
-    super.dispose();
+  State<Man_splash> createState() => Giu_man_hinh();
+}
+
+class Giu_man_hinh extends State<Man_splash> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Man_hinh_chinh()),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("2/9 quoc khanh ")),
-        body: Container(
-          child: ListView(
+    return Scaffold(
+      backgroundColor: const Color(0xFFFCA311),
+      body: Center(child: Image.asset("assets/vn.png", color: Colors.white)),
+    );
+  }
+}
+
+class Man_hinh_chinh extends StatelessWidget {
+  Man_hinh_chinh({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(130),
+        child: AppBar(
+          actions: [
+            IconButton(
+              icon: Icon(Icons.menu, size: 30, color: Colors.grey),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TrangTaiKhoan()),
+                );
+              },
+            ),
+          ],
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Flutter web so 1 '),
-
-              ListTile(
-                leading: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.home, color: Colors.redAccent),
-                    Icon(Icons.search),
-                    Icon(Icons.person, color: Colors.blue),
-                  ],
-                ),
-
-                title: Text('import gpt 4.5'),
-                trailing: IconButton(
-                  icon: Icon(Icons.settings, color: Colors.blueGrey),
-                  onPressed: () {
-                    print("tùy chỉnh ");
-                  },
-                ),
+              Row(
+                children: [
+                  Icon(Icons.place, size: 20, color: Colors.grey),
+                  Text(
+                    'Địa chỉ của bạn',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  ),
+                ],
               ),
-              SizedBox(height: 20),
-              Form(
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: TEN,
-                      decoration: InputDecoration(
-                        labelText: 'Tên của bạn',
-                        hintText: 'Nhập tên...',
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          ten = TEN.text;
-                        });
-                      },
-                      child: Text('Hiển thị tên'),
-                    ),
-                    SizedBox(height: 10),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          tin_nhan = 'Bạn vừa chạm vào dòng này!';
-                        });
-                      },
-                      child: Text(
-                        'Bấm vô đây',
-                        style: TextStyle(color: Colors.blue, fontSize: 18),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text('Xin chào:' + ten, style: TextStyle(fontSize: 20)),
-                    Text(tin_nhan),
-                  ],
+              Text(
+                'TÊN HÃNG',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.orange,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(40),
+
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+
+              child: Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrangTimKiem(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.search, color: Colors.grey),
+                            Text(
+                              'Tìm kiếm , nhà hàng, món ăn ',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TrangTimKiem()),
+                      );
+                    },
+
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      minimumSize: const Size(50, 50),
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+
+                    child: const Icon(Icons.search, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
-      debugShowCheckedModeBanner: false,
+      body: ListView(scrollDirection: Axis.vertical, children: [
+
+      ],
+      ),
+    );
+  }
+}
+
+class TrangTimKiem extends StatelessWidget {
+  const TrangTimKiem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Trang Tìm Kiếm')),
+      body: Center(child: Text('Nội dung trang tìm kiếm')),
+    );
+  }
+}
+
+class TrangTaiKhoan extends StatelessWidget {
+  const TrangTaiKhoan({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Trang Tài Khoản')),
+      body: Center(child: Text('Nội dung trang tài khoản')),
     );
   }
 }
