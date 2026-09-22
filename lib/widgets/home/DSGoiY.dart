@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RecommendList extends StatelessWidget {
-  const RecommendList({super.key});
+class DanhSachGoiY extends StatelessWidget {
+  const DanhSachGoiY({super.key});
 
-  static const _restaurants = [
-    ('Cơm tấm Sài Gòn', 'Cơm tấm, món Việt', 'assets/goiymon.png'),
-    ('Lotteria', 'Gà rán, burger', 'assets/lotteria.png'),
-    ('Bếp Nhà Mình', 'Món nhà nấu', 'assets/banphim.png'),
-    ('Quán ngon mỗi ngày', 'Bún, phở, cơm', 'assets/hello.png'),
+  static const nha_hang = [
+    ('Cơm Niêu Singapore', 'Cơm tấm, món Việt', 'assets/anh1.png'),
+    ('Mỳ Cay Hàn Quốc', 'Mì Hàn Quốc', 'assets/anh2.png'),
+    ('Sasin - Mì Cay 7 Cấp Độ', 'Mì cay, ăn vặt', 'assets/anh3.png'),
+    ('Mì Trộn - Trần Thái Tông', 'Bún, phở, cơm', 'assets/ảnh 4.png'),
   ];
 
   @override
@@ -22,7 +22,7 @@ class RecommendList extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 8),
-          ..._restaurants.map(
+          ...nha_hang.map(
             (restaurant) => _RestaurantTile(
               name: restaurant.$1,
               detail: restaurant.$2,

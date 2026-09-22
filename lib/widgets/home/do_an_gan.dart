@@ -19,14 +19,14 @@ class NearbyFood extends StatelessWidget {
             children: const [
               Expanded(
                 child: _NearbyCard(
-                  title: 'Gà rán giòn ngon',
-                  image: 'assets/lotteria.png',
+                  title: 'The Coffee House',
+                  image: 'assets/123.png',
                 ),
               ),
               SizedBox(width: 12),
               Expanded(
                 child: _NearbyCard(
-                  title: 'Món ngon hôm nay',
+                  title: 'Cộng Cafe',
                   image: 'assets/congcafe.png',
                 ),
               ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/home/mon_an.dart';
-import '../widgets/home/daily_discount.dart';
+import '../widgets/home/DanhMuc.dart';
+import '../widgets/home/GiamgiaHangNgay.dart';
 import '../widgets/home/home_header.dart';
-import '../widgets/home/home_search_bar.dart';
+import '../widgets/home/home_search.dart';
 import '../widgets/home/do_an_gan.dart';
-import '../widgets/home/promo_banner.dart';
-import '../widgets/home/recommend_list.dart';
+import '../widgets/home/DAU.dart';
+import '../widgets/home/DSGoiY.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 20),
               const NearbyFood(),
               const SizedBox(height: 20),
-              const RecommendList(),
+              const DanhSachGoiY(),
               const SizedBox(height: 24),
             ],
           ),

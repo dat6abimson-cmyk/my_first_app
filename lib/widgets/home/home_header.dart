@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/Taikhoan.dart';
+
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
       child: Row(
         children: [
@@ -16,19 +18,35 @@ class HomeHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Giao đến',
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  'Địa chỉ của bạn',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF616161),
+                  ),
                 ),
                 SizedBox(height: 2),
                 Text(
-                  'Tòa nhà Home, Quận 1',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
-                  overflow: TextOverflow.ellipsis,
+                  'FOOD DELIVERY !',
+                  style: TextStyle(
+                    fontFamily: 'iCielCrocante',
+                    fontSize: 25,
+                    color: Color(0xFFFFAA00),
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             ),
           ),
-          Icon(Icons.notifications_none_rounded, color: Color(0xFF303030)),
+          IconButton(
+            icon: Icon(Icons.menu, color: Color(0xFF303030)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TaiKhoanScreen()),
+              );
+            },
+          ),
         ],
       ),
     );
